@@ -7,10 +7,6 @@ public struct JournalEntry: Codable {
     self.date = date
   }
   
-  public func doSomething() {
-    print("doing something!")
-  }
-  
   public init(emoji: String) {
     self.id = UUID().uuidString
     self.emoji = emoji
