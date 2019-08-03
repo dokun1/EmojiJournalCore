@@ -7,6 +7,10 @@ public struct JournalEntry: Codable {
     self.date = date
   }
   
+  public func doSomething() {
+    print("doing something!")
+  }
+  
   public init(emoji: String) {
     self.id = UUID().uuidString
     self.emoji = emoji
@@ -22,26 +26,26 @@ public struct JournalEntry: Codable {
 import UIKit
 
 extension UIColor {
-   var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
-       var red: CGFloat = 0
-       var green: CGFloat = 0
-       var blue: CGFloat = 0
-       var alpha: CGFloat = 0
-       getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+  var rgba: (red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) {
+    var red: CGFloat = 0
+    var green: CGFloat = 0
+    var blue: CGFloat = 0
+    var alpha: CGFloat = 0
+    getRed(&red, green: &green, blue: &blue, alpha: &alpha)
 
-       return (red, green, blue, alpha)
-   }
+    return (red, green, blue, alpha)
+  }
 }
 #if canImport(SwiftUI)
 import SwiftUI
 
 @available(iOS 13.0, *)
 extension Color {
-   init(uiColor: UIColor) {
-       self.init(red: Double(uiColor.rgba.red),
-                 green: Double(uiColor.rgba.green),
-                 blue: Double(uiColor.rgba.blue),
-                 opacity: Double(uiColor.rgba.alpha))
+  init(uiColor: UIColor) {
+    self.init(red: Double(uiColor.rgba.red),
+              green: Double(uiColor.rgba.green),
+              blue: Double(uiColor.rgba.blue),
+              opacity: Double(uiColor.rgba.alpha))
    }
 }
 #endif
